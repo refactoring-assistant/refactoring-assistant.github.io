@@ -11,8 +11,8 @@ let BOILERPLATE_HTML =
 		<html lang='en'>
 			<head>
 				<meta charset="UTF-8"/>
-				<title></title>
 				<meta name="viewport" content="width=device-width,initial-scale=1" />
+				<link rel="stylesheet" href="/styles.css"/>
 			</head>
 			<body>
 				<nav>
@@ -22,15 +22,15 @@ let BOILERPLATE_HTML =
 			</body>
 		</html
 	`
+
 function createSmellsJson(files) {
 	const smells = files.map((file) => {
 		const relPath = path.relative('code-smells', file.parentPath);
 		const pathParts = relPath.split(path.sep);
 		const type = pathParts[0];
 		const name = pathParts[1];
-		const regex = new RegExp('-', 'g');
-		const sanitizedName = name.replace(regex, ' ');
-		const sanitizedType = type.replace(regex, ' ');
+		const sanitizedType = cleanName(type);
+		const sanitizedName = cleanName(name);
 		const href = `code-smells/${type}/${name}`;
 		return {
 			name: sanitizedName,
@@ -67,7 +67,7 @@ function createNav(smells) {
 	const injectedHTML = dom.serialize();
 	
 	BOILERPLATE_HTML = injectedHTML;
-	console.log(BOILERPLATE_HTML);
+	// console.log(BOILERPLATE_HTML);
 
 	return nav;
 }
@@ -101,9 +101,25 @@ async function parseDir() {
 		const content = fs.readFileSync(file.parentPath + "/" + file.name, {encoding: 'UTF-8'});
 		const parsed = marked.parse(content);
 		const filepath = typePath + '/' + name + '.html';
-		const injectedHTML = injectHTML(name, parsed);
+		const injectedHTML = injectHTML(capitalize(cleanName(name)), parsed);
 		createHTMLFile(filepath, injectedHTML);
 	 })
+}
+
+function capitalize(name: string) {
+	const words = name.split(' ');
+	const capitalized = words.map((word) => {
+		return word.charAt(0).toUpperCase() + word.slice(1);;
+	});
+	console.log(capitalized.join(' '));
+	return capitalized.join(' ');
+}
+
+
+function cleanName(name: string) {
+	const regex = new RegExp('-', 'g');
+	const cleanName = name.replace(regex, ' ');
+	return cleanName;
 }
 
 function fetchAllMarkdownFiles() {
@@ -140,6 +156,7 @@ function createHTMLFile(pathname: string, content: string) {
 function injectHTML(name: string, html: string) {
 	const dom = new JSDOM(BOILERPLATE_HTML);
 	const document = dom.window.document;
+	document.title = `${name} | Code Smell References`;
 	document.querySelector("main").innerHTML = html;
 	const injectedHTML = dom.serialize();
 	return injectedHTML;
