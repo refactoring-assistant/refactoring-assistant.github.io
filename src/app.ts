@@ -3,44 +3,11 @@ import path from "path";
 import {marked} from "marked";
 import * as fs from 'node:fs';
 
-const CONTENT_DIR = 'code-smells';
-const STATIC_DIR = 'public';
+import { createNav, injectHTML } from './html-utils.ts';
+import { capitalize, cleanName } from './utils.ts';
+import { safeCreateDirSync, createHTMLFile, fetchAllMarkdownFiles } from './file-utils.ts';
+import { type CodeSmell } from './types.ts';
 
-let BOILERPLATE_HTML = 
-	`
-		<!DOCTYPE html>
-		<html lang='en'>
-			<head>
-				<meta charset="UTF-8"/>
-				<meta name="viewport" content="width=device-width,initial-scale=1" />
-				<link rel="stylesheet" href="/styles.css"/>
-			</head>
-			<body>
-				<nav>
-				</nav>
-				<main>
-				</main>
-			</body>
-		</html
-	`
-
-function addNavToIndex(nav) {
-	const staticDir = path.join(process.cwd(), STATIC_DIR);
-
-	if(!fs.existsSync(staticDir)) {
-		throw new Error(`Static directory at ${staticDir} does not exist.`);
-	}
-	
-	const index = fs.readFileSync(staticDir + '/index.html', {encoding: 'UTF-8'});
-	const dom = new JSDOM(index);
-	const document = dom.window.document;
-	document.querySelector('nav').innerHTML = nav;
-	const serialized = dom.serialize();
-	fs.writeFileSync(staticDir + '/index.html', serialized);
-}
-
-
-	
 function createSmellsJson(files) {
 	const smells = files.map((file) => {
 		const relPath = path.relative('code-smells', file.parentPath);
@@ -57,37 +24,7 @@ function createSmellsJson(files) {
 		}
 	})
 
-	// const grouped = smells.reduce((arr, smell) => {
-	// 	if(!arr[smell.type]) {
-	// 		arr[smell.type] = [];
-	// 	}
-
-	// 	arr[smell.type].push(smell);
-	// 	return arr;
-	// }, {});
-
 	return smells;
-}
-
-function createNav(smells) {
-	const nav = '<ul>' + smells.map((smell) => {
-		const tag = `<li><a href='/${smell.href}'>${smell.type}/${smell.name}</a></li>`;
-		return tag;
-	}).join("") + '</ul>';
-
-	// console.log(nav);
-	
-	const dom = new JSDOM(BOILERPLATE_HTML);
-	const document = dom.window.document;
-	document.querySelector("nav").innerHTML = nav;
-	const injectedHTML = dom.serialize();
-	
-	addNavToIndex(nav);
-
-	BOILERPLATE_HTML = injectedHTML;
-	// console.log(BOILERPLATE_HTML);
-
-	return nav;
 }
 
 async function parseDir() {
@@ -122,62 +59,6 @@ async function parseDir() {
 		const injectedHTML = injectHTML(capitalize(cleanName(name)), parsed);
 		createHTMLFile(filepath, injectedHTML);
 	 })
-}
-
-function capitalize(name: string) {
-	const words = name.split(' ');
-	const capitalized = words.map((word) => {
-		return word.charAt(0).toUpperCase() + word.slice(1);;
-	});
-	// console.log(capitalized.join(' '));
-	return capitalized.join(' ');
-}
-
-
-function cleanName(name: string) {
-	const regex = new RegExp('-', 'g');
-	const cleanName = name.replace(regex, ' ');
-	return cleanName;
-}
-
-function fetchAllMarkdownFiles() {
-	const contentDir = path.join(process.cwd(), CONTENT_DIR);
-	
-	if(!fs.existsSync(contentDir)) {
-		throw new Error(`Content directory at ${contentDir} does not exist.`);
-	}
-
-	const files = fs.readdirSync(contentDir, {withFileTypes: true, recursive: true});
-	const mdFiles = files.filter(file => file.name.endsWith(".md"));
-
-	return mdFiles;
-}
-	
-
-function safeCreateDirSync(pathname: string) {
-	if(fs.existsSync(pathname)) {
-		// console.log(`${pathname} already exists, skipping...`);
-	} else {
-		fs.mkdirSync(pathname);
-	}
-}
-
-function createHTMLFile(pathname: string, content: string) {
-	try {
-		fs.writeFileSync(pathname, content);
-		// console.log(`${pathname} written successfully`);
-	} catch(e) {
-		console.error(e);
-	}
-}
-
-function injectHTML(name: string, html: string) {
-	const dom = new JSDOM(BOILERPLATE_HTML);
-	const document = dom.window.document;
-	document.title = `${name} | Code Smell References`;
-	document.querySelector("main").innerHTML = html;
-	const injectedHTML = dom.serialize();
-	return injectedHTML;
 }
 
 parseDir();
