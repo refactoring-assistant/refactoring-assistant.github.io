@@ -3,9 +3,9 @@ import path from "path";
 import {marked} from "marked";
 import * as fs from 'node:fs';
 
-import { createNav, injectHTML } from './html-utils.ts';
-import { capitalize, cleanName } from './utils.ts';
-import { safeCreateDirSync, createHTMLFile, fetchAllMarkdownFiles } from './file-utils.ts';
+import { createNav, injectHTML } from './utils/html-utils.ts';
+import { capitalize, cleanName } from './utils/utils.ts';
+import { safeCreateDirSync, createHTMLFile, fetchAllMarkdownFiles } from './utils/file-utils.ts';
 import { type CodeSmell } from './types.ts';
 
 function createSmellsJson(files) {
