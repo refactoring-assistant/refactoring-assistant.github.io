@@ -4,6 +4,7 @@ import {marked} from "marked";
 import * as fs from 'node:fs';
 
 const CONTENT_DIR = 'code-smells';
+const STATIC_DIR = 'public';
 
 let BOILERPLATE_HTML = 
 	`
@@ -23,6 +24,23 @@ let BOILERPLATE_HTML =
 		</html
 	`
 
+function addNavToIndex(nav) {
+	const staticDir = path.join(process.cwd(), STATIC_DIR);
+
+	if(!fs.existsSync(staticDir)) {
+		throw new Error(`Static directory at ${staticDir} does not exist.`);
+	}
+	
+	const index = fs.readFileSync(staticDir + '/index.html', {encoding: 'UTF-8'});
+	const dom = new JSDOM(index);
+	const document = dom.window.document;
+	document.querySelector('nav').innerHTML = nav;
+	const serialized = dom.serialize();
+	fs.writeFileSync(staticDir + '/index.html', serialized);
+}
+
+
+	
 function createSmellsJson(files) {
 	const smells = files.map((file) => {
 		const relPath = path.relative('code-smells', file.parentPath);
@@ -48,24 +66,24 @@ function createSmellsJson(files) {
 	// 	return arr;
 	// }, {});
 
-
 	return smells;
 }
 
 function createNav(smells) {
-	
 	const nav = '<ul>' + smells.map((smell) => {
 		const tag = `<li><a href='/${smell.href}'>${smell.type}/${smell.name}</a></li>`;
 		return tag;
 	}).join("") + '</ul>';
 
-	console.log(nav);
+	// console.log(nav);
 	
 	const dom = new JSDOM(BOILERPLATE_HTML);
 	const document = dom.window.document;
 	document.querySelector("nav").innerHTML = nav;
 	const injectedHTML = dom.serialize();
 	
+	addNavToIndex(nav);
+
 	BOILERPLATE_HTML = injectedHTML;
 	// console.log(BOILERPLATE_HTML);
 
@@ -82,7 +100,7 @@ async function parseDir() {
 	const smells = createSmellsJson(files);
 
 	createNav(smells);
-
+	
 	// TODO: Create code smell type directories first and then create HTML files.
 	// Currently, for each code smell of a single type, it calls safeCreateDirSync 
 	// which is unecessary.
@@ -111,7 +129,7 @@ function capitalize(name: string) {
 	const capitalized = words.map((word) => {
 		return word.charAt(0).toUpperCase() + word.slice(1);;
 	});
-	console.log(capitalized.join(' '));
+	// console.log(capitalized.join(' '));
 	return capitalized.join(' ');
 }
 
