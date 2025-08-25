@@ -17,26 +17,26 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
-      steps:
-        - name: Checkout repository
-          uses: actions/checkout@v4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-        - name: Set up Node.js
-          uses: actions/setup-node@v4
-          with:
-            node-version: '24.5.0'
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24.5.0'
 
-        - name: Install dependencies
-          run: npm install
-        
-        - name: Build site
-          run: npm start
+      - name: Install dependencies
+        run: npm install
 
-        - name: Upload artifact
-          uses: actions/upload-pages-artifact@v3
-          with:
-            path: out
+      - name: Build site
+        run: npm start
 
-        - name: Deploy to pages
-          id: deployment
-          uses: actions/deploy-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+      - name: Deploy to pages
+        id: deployment
+        uses: actions/deploy-pages@v4
