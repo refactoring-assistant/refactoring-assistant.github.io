@@ -1,0 +1,24 @@
+{
+  "name": "refactoring-assistant.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.ts",
+  "scripts": {
+    "start": "ts-node src/app.ts",
+    "dev": "nodemon src/app.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/marked": "^5.0.2",
+    "@types/node": "^24.3.0",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2"
+  },
+  "type": "module",
+  "dependencies": {
+    "jsdom": "^26.1.0",
+    "marked": "^16.2.0"
+  }
+}
