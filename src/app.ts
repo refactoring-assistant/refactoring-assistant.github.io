@@ -5,7 +5,7 @@ import * as fs from 'node:fs';
 
 const CONTENT_DIR = 'code-smells';
 
-const BOILERPLATE_HTML = 
+let BOILERPLATE_HTML = 
 	`
 		<!DOCTYPE html>
 		<html lang='en'>
@@ -22,6 +22,55 @@ const BOILERPLATE_HTML =
 			</body>
 		</html
 	`
+function createSmellsJson(files) {
+	const smells = files.map((file) => {
+		const relPath = path.relative('code-smells', file.parentPath);
+		const pathParts = relPath.split(path.sep);
+		const type = pathParts[0];
+		const name = pathParts[1];
+		const regex = new RegExp('-', 'g');
+		const sanitizedName = name.replace(regex, ' ');
+		const sanitizedType = type.replace(regex, ' ');
+		const href = `code-smells/${type}/${name}`;
+		return {
+			name: sanitizedName,
+			type: sanitizedType,
+			href: href,
+		}
+	})
+
+	// const grouped = smells.reduce((arr, smell) => {
+	// 	if(!arr[smell.type]) {
+	// 		arr[smell.type] = [];
+	// 	}
+
+	// 	arr[smell.type].push(smell);
+	// 	return arr;
+	// }, {});
+
+
+	return smells;
+}
+
+function createNav(smells) {
+	
+	const nav = '<ul>' + smells.map((smell) => {
+		const tag = `<li><a href='/${smell.href}'>${smell.type}/${smell.name}</a></li>`;
+		return tag;
+	}).join("") + '</ul>';
+
+	console.log(nav);
+	
+	const dom = new JSDOM(BOILERPLATE_HTML);
+	const document = dom.window.document;
+	document.querySelector("nav").innerHTML = nav;
+	const injectedHTML = dom.serialize();
+	
+	BOILERPLATE_HTML = injectedHTML;
+	console.log(BOILERPLATE_HTML);
+
+	return nav;
+}
 
 async function parseDir() {
 	const outDir = path.join(process.cwd(), "out");
@@ -29,6 +78,10 @@ async function parseDir() {
 	safeCreateDirSync(outDir);
 
 	const files = fetchAllMarkdownFiles();
+	
+	const smells = createSmellsJson(files);
+
+	createNav(smells);
 
 	// TODO: Create code smell type directories first and then create HTML files.
 	// Currently, for each code smell of a single type, it calls safeCreateDirSync 
@@ -69,7 +122,7 @@ function fetchAllMarkdownFiles() {
 
 function safeCreateDirSync(pathname: string) {
 	if(fs.existsSync(pathname)) {
-		console.log(`${pathname} already exists, skipping...`);
+		// console.log(`${pathname} already exists, skipping...`);
 	} else {
 		fs.mkdirSync(pathname);
 	}
@@ -78,7 +131,7 @@ function safeCreateDirSync(pathname: string) {
 function createHTMLFile(pathname: string, content: string) {
 	try {
 		fs.writeFileSync(pathname, content);
-		console.log(`${pathname} written successfully`);
+		// console.log(`${pathname} written successfully`);
 	} catch(e) {
 		console.error(e);
 	}
