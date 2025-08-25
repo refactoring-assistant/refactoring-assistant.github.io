@@ -6,25 +6,18 @@
 
 In the `code-smells` folder you will find the following example file structure:
 
+```
 code-smells/
-
 └── bloaters/
-
     └── data-clumps/
-
         ├── example-1/
-
         │   ├── DCBE1.java
-
         │   └── DCGE1.java
-
         ├── example-2/
-
         │   ├── DCBE1.java
-
         │   └── DCGE1.java
-
         └── DataClumpsReadme.md
+```
 
 Each `example` folder has two files in it, a 'good' example and a 'bad' example.
 A 'bad' example is a code file that contains the code smell mentioned by its parent folder and a 'good' example is a code file that does NOT contain THAT code smell in it.
