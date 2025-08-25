@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="en"><head>
+				<meta charset="UTF-8">
+				<title></title>
+				<meta name="viewport" content="width=device-width,initial-scale=1">
+			</head>
+			<body>
+				<nav>
+				</nav>
+				<main><h1>Speculative Generality</h1>
+<h2>Description (What)</h2>
+<p>The existence of a class, field or method that was intended for future use that is currently unused contributes to Speculative Generality</p>
+<h2>How to Locate It (Where)</h2>
+<p>Look for code that is currently not used (like dead code) or has a very bare implementation created specifically to support a future work that is anticipated</p>
+<h2>How It Manifests (Why)</h2>
+<p>Speculative Generality appears when a lot of code is written that is intended to support future work such that it starts hampering current development and becomes harder to maintain. In general coding, it is better to have extendability in your program through the use of interfaces, but when classes, fields or methods are created as placeholders, it can make code unreadable.</p>
+<h2>How to Fix It (Possible Treatments)</h2>
+<p>In Example 1, <code>Collapse Hierarchy</code> is used to remove an unused abstract class. <code>Collapse Hierarchy</code> can be used to simplify hierarchies that were made for far flung future work but work towards increasing technical debt more than the extendability of the program.</p>
+<p>Other treatments are also possible based on the specific scenario, they can be found <a href="https://refactoring.guru/smells/speculative-generality#:~:text=Treatment">here</a></p>
+<h2>Examples</h2>
+<h3>Example 1</h3>
+<h4>Problem SGBE1.java</h4>
+<p>An abstract class <code>Shape</code> was created with the hope of future use, but it was never used anywhere.</p>
+<pre><code>Observed Code Smells:
+- Speculative Generality (lines 1-5)
+</code></pre>
+<hr>
+<h4>Solution SGGE1.java</h4>
+<p>Deleted the unused abstract class by <code>Collapse Hierarchy</code>.</p>
+<pre><code>Refactoring Applied:
+- Speculative Generality
+    - Collapse Hierarchy (Deleted the unused abstract class Shape)
+</code></pre>
+<pre><code>Observed Code Smells After Refactoring:
+- None
+</code></pre>
+<h2>When to Ignore</h2>
+<p>Writing code that is designed to behave like a framework, as long as the code is directly used by the framework's users</p>
+<p>Code that is written specially for testing purposes</p>
+<h2>More</h2>
+<p><a href="https://refactoring.guru/smells/speculative-generality">More about Speculative Generality</a></p>
+</main>
+			
+		</body></html>

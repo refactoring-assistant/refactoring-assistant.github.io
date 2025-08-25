@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="en"><head>
+				<meta charset="UTF-8">
+				<title></title>
+				<meta name="viewport" content="width=device-width,initial-scale=1">
+			</head>
+			<body>
+				<nav>
+				</nav>
+				<main><h1>Inappropriate Intimacy</h1>
+<h2>Description (What)</h2>
+<p>A class uses the interal fields and methods of an object directly</p>
+<h2>How to Locate It (Where)</h2>
+<p>Look for public fields being access by other classes. Classes should know as little about each other as possible.</p>
+<h2>How It Manifests (Why)</h2>
+<p>Can occur due to fields being public and being accessed by other classes because it is easier to do instead of creating a getter/setter method.</p>
+<h2>How to Fix It (Possible Treatments)</h2>
+<p>In Example 1, <code>Hide Delegate</code> is used. This treatment requires you to create getter and setter methods for the field that needs to be accessed to allow for an "official" relationship as compared to dirt mutating. If a public method is also being accessed along with the fields it is better to first <code>Extract Class</code> and create a new class and then move the fields and methods to that new class and use it from there.</p>
+<p>Other treatments are also possible based on the specific scenario, they can be found <a href="https://refactoring.guru/smells/inappropriate-intimacy#:~:text=Treatment">here</a></p>
+<h2>Examples</h2>
+<h3>Example 1</h3>
+<h4>Problem IIBE1.java</h4>
+<p><code>Library</code> class uses the internal fields of <code>Book</code> class as they are marked as public.</p>
+<pre><code>Observed Code Smells:
+- Inappropriate Intimacy (lines 38, 43, 44)
+</code></pre>
+<hr>
+<h4>Solution IIGE1.java</h4>
+<p>Applied <code>Hide Delegate</code> to make field private and create a getter for the field instead to make the relation "official" instead of directly mutating the field. This is step 2 of the Extract Class and Hide Delegate treatment but since only a field is being accessed, the <code>Extract Class</code> part seems unecessary and making the field private from public seems to be enough.</p>
+<pre><code>Refactoring Applied:
+- Inappropriate Intimacy
+    - Hide Delegate
+</code></pre>
+<pre><code>Observed Code Smells After Refactoring:
+- None
+</code></pre>
+<h2>When to Ignore</h2>
+<p>None</p>
+<h2>More</h2>
+<p><a href="https://refactoring.guru/smells/inappropriate-intimacy">More about Inappropriate Intimacy</a></p>
+</main>
+			
+		</body></html>

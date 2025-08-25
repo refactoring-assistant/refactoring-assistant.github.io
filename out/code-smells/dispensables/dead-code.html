@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="en"><head>
+				<meta charset="UTF-8">
+				<title></title>
+				<meta name="viewport" content="width=device-width,initial-scale=1">
+			</head>
+			<body>
+				<nav>
+				</nav>
+				<main><h1>Dead Code</h1>
+<h2>Description (What)</h2>
+<p>Dead code is any piece of code (method, line, field) that is unused or unreachable.</p>
+<h2>How to Locate It (Where)</h2>
+<p>Most modern IDEs and Linters have inbuilt dead code detection for public methods and fields and gray out or highlight dead code.</p>
+<p>In cases where a field or method is private, your IDE might not gray about dead code, in which case it is imperative to go through your class to make sure any private method or field is not going unused.</p>
+<h2>How It Manifests (Why)</h2>
+<p>Sometimes better, newer or simply different methods are created to superseed older methods. In these cases, the older method become dead code since they are not used anymore. Sometimes methods and fields or variables are created in anticipation of being used in the future but simply remain unused.</p>
+<h2>How to Fix It (Possible Treatments)</h2>
+<p>Simply delete the unused (dead) methods or fields or variables.</p>
+<p>Other treatments are also possible based on the specific scenario, they can be found <a href="https://refactoring.guru/smells/dead-code#:~:text=Treatment">here</a></p>
+<h2>Examples</h2>
+<h3>Example 1</h3>
+<h4>Problem DEDCBE1.java</h4>
+<p>Shipment class has dead method <code>calculateDistance</code>  which has been 
+superseeded by method <code>calculateDistanceFast</code> and thus also making
+method <code>degToRad</code> dead.</p>
+<pre><code>Observed Code Smells:
+- Dead Code (lines 9-14, 27-29)
+</code></pre>
+<hr>
+<h4>Solution DEDCGE1.java</h4>
+<p><code>Deleted</code> unused dead methods <code>calculateDistance</code> and <code>degToRad</code>.</p>
+<pre><code>Refactoring Applied:
+- Dead Code
+    - Deleted unused methods (calculateDistance and degToRad)
+</code></pre>
+<pre><code>Observed Code Smells After Refactoring:
+- None
+</code></pre>
+<h2>When to Ignore</h2>
+<p>None</p>
+<h2>More</h2>
+<p><a href="https://refactoring.guru/smells/dead-code">More about Dead Code</a></p>
+</main>
+			
+		</body></html>

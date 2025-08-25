@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="en"><head>
+				<meta charset="UTF-8">
+				<title></title>
+				<meta name="viewport" content="width=device-width,initial-scale=1">
+			</head>
+			<body>
+				<nav>
+				</nav>
+				<main><h1>Alternative Classes With Different Interfaces</h1>
+<h2>Description (What)</h2>
+<p>Two classes which perform identical functions but have different method names, field names and have different interfaces.</p>
+<h2>How to Locate It (Where)</h2>
+<p>Look for hierarchies that look similar and perform similar functions. Look at the logical use of the class and make sure that there aren't other interfaces and classes that supposedly perform similar or exactly same functions.</p>
+<h2>How It Manifests (Why)</h2>
+<p>This can happen in cases where two developers working on the same codebase eventually end up creating the same hierarchies and were unaware of a similar structure existing in the program already.</p>
+<h2>How to Fix It (Possible Treatments)</h2>
+<p>In Example 1, we simply removed on of the duplicate hierarchies. A more formal treatment is possible by slowly renaming methods, moving methods and eventually simplifying the two classes such that they appear identical and then removing one of them.</p>
+<p>Other treatments are also possible based on the specific scenario, they can be found <a href="https://refactoring.guru/smells/alternative-classes-with-different-interfaces#:~:text=Treatment">here</a></p>
+<h2>Examples</h2>
+<h3>Example 1</h3>
+<h4>Problem ACDIBE1.java</h4>
+<p>There are two different interfaces each of which have their respective implementations all of which are identical but only in method names and field names.</p>
+<pre><code>Observed Code Smells:
+- Alternative Classes With Different Interfaces (lines 12-20 and 65-107)
+</code></pre>
+<h4>Solution ACDIGE1.java</h4>
+<p>Removed one of the similar interface and its class.</p>
+<pre><code>Refactoring Applied:
+- Alternative Classes With Different Interfaces
+    - Delete alternate interface and its implementation
+</code></pre>
+<pre><code>Observed Code Smells After Refactoring:
+- None
+</code></pre>
+<h2>When to Ignore</h2>
+<p>In cases where these two classes might be part of different programs, libraries or frameworks</p>
+<h2>More</h2>
+<p><a href="https://refactoring.guru/smells/alternative-classes-with-different-interfaces">More about Alternative Classes With Different Interfaces</a></p>
+</main>
+			
+		</body></html>

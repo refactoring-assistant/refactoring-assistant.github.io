@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="en"><head>
+				<meta charset="UTF-8">
+				<title></title>
+				<meta name="viewport" content="width=device-width,initial-scale=1">
+			</head>
+			<body>
+				<nav>
+				</nav>
+				<main><h1>Divergent Change</h1>
+<h2>Description (What)</h2>
+<p>Divergent Change is when you want to make changes to a field or a class as whole and end up having to also make changes to methods unrelated to that change in the class.</p>
+<h2>How to Locate It (Where)</h2>
+<p>Look for strong coupling between fields and methods. In general all fields that are being used in methods must be specific to that method.</p>
+<h2>How It Manifests (Why)</h2>
+<p>Divergent Change can occur due to a poor program structure. Especially when a class is not modular enough or contains strong coupling with fields.</p>
+<h2>How to Fix It (Possible Treatments)</h2>
+<p>In Example 1, <code>Extract Class</code> is used. <code>Extract Class</code> in this case is used because of strong coupling in the expectation of the structure of a field (validation), which causes changes when adding a new type of protocol in methods unrelated to that change.</p>
+<p>Other treatments are also possible based on the specific scenario, they can be found <a href="https://refactoring.guru/smells/divergent-change#:~:text=Treatment">here</a></p>
+<h2>Examples</h2>
+<h3>Example 1</h3>
+<h4>Problem DVCHBE1.java</h4>
+<p>If we were to add a new type of connection, we would have to make changes to both the unrelated methods getDomain() and checkValidUrl()</p>
+<pre><code>Observed Code Smells:
+- Divergent Change (lines 9-18, 20-27)
+</code></pre>
+<hr>
+<h4>Solution DVCHGE1.java</h4>
+<p>Applied <code>Extract Class</code> to split the behavior into two classes. Both classes have the same behavior so, created interface Connector for inheritance</p>
+<pre><code>Refactoring Applied:
+- Divergent Change
+    - Extract Class (HTTPConnector, FTPConnector)
+</code></pre>
+<pre><code>Observed Code Smells After Refactoring:
+- None
+</code></pre>
+<h2>When to Ignore</h2>
+<p>None</p>
+<h3>More</h3>
+<p><a href="https://refactoring.guru/smells/divergent-change">More about Divergent Change</a></p>
+</main>
+			
+		</body></html>

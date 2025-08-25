@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="en"><head>
+				<meta charset="UTF-8">
+				<title></title>
+				<meta name="viewport" content="width=device-width,initial-scale=1">
+			</head>
+			<body>
+				<nav>
+				</nav>
+				<main><h1>Comments</h1>
+<h2>Description (What)</h2>
+<p>Any comment that explains a line(s) of code inside a method or in the class that is not part of a comment syntax such as JavaDoc</p>
+<h2>How to Locate It (Where)</h2>
+<p>Look for single lines comments that can be removed as the code they are explainig should be self-explanatory</p>
+<h2>How It Manifests (Why)</h2>
+<p>The need to explain a line of code usually means that line of code is not self-explanatory and needs to be ammended such that it is. Any time you feel that a comment is absolutely necessary it is possible that the piece of code being explained can be spinned of into a new method. </p>
+<h2>How to Fix It (Possible Treatments)</h2>
+<p>Remove the comment and use <code>Extract Method</code> to convert the explained code into its own method for more understandable and maintainable code.</p>
+<p>Other treatments are also possible based on the specific scenario, they can be found <a href="https://refactoring.guru/smells/comments#:~:text=Treatment">here</a></p>
+<h2>Examples</h2>
+<h3>Example 1</h3>
+<h4>Problem CBE1.java</h4>
+<p>A lot of comments at the end of lines that bloat the code and are dispensable as the code is self-explanatory. Some comments are detailed and required which means methods can be extracted</p>
+<pre><code>Observed Code Smells:
+- Comments (lines 117, 135, 138, 141, 144, 149, 154, 157)
+</code></pre>
+<h4>Solution CGE1.java</h4>
+<p>Applied <code>Extract Method</code> to create a new method called <code>applyBrightnessToPixel</code> that better illustrates what that piece of code is to do.</p>
+<pre><code>Refactoring Applied:
+- Comments
+    - Extract Method (line 147-158)
+</code></pre>
+<pre><code>Observed Code Smells After Refactoring:
+- None
+</code></pre>
+<h2>When to Ignore</h2>
+<p>In places where the comment is used to explain Why a specific implementation is being used
+or for explaining complex algorithms after trying to simplify the code.</p>
+<h2>More</h2>
+<p><a href="https://refactoring.guru/smells/comments">More about Comments</a></p>
+</main>
+			
+		</body></html>

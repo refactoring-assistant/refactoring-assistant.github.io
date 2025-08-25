@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="en"><head>
+				<meta charset="UTF-8">
+				<title></title>
+				<meta name="viewport" content="width=device-width,initial-scale=1">
+			</head>
+			<body>
+				<nav>
+				</nav>
+				<main><h1>Parallel Inheritance Hierarchies</h1>
+<h2>Description (What)</h2>
+<p>The structure of your program is such that creating a sub class for a class leads you to having to create a sub class for another class.</p>
+<h2>How to Locate It (Where)</h2>
+<p>Look for inheritance heirarchies that are paralleled throughout your program. Commonly occurs when you have a two or more different interfaces and their respective classes which appear logically similar but are structured in such a way that making changes to one makes you think about making changes to the other.</p>
+<h2>How It Manifests (Why)</h2>
+<p>Often when creating a new inheritance hierarchy there is a subconscious need to create inheritance hierarchies of objects that are used in the new inheritance hierarchy or for the sake of creating interfaces for future extendability.</p>
+<p>This can be manageable when having small hierarchies but when classes and interfaces increase, it can become hard to manage.</p>
+<h2>How to Fix It (Possible Treatments)</h2>
+<p>In Example 1, a combination of two treatments, <code>Move Field</code> and <code>Move Method</code> are used to create a new simpler interface that combines two previous separated interfaces. This way, new classes created to inherit the interface no longer need to be made twice for both previous interfaces.</p>
+<h3>Example 1</h3>
+<h4>Problem PIHBE1.java</h4>
+<p>There is a parallel heirarchy between the Weapon interface and Enemy interface where, each time a new enemy is made (for eg. Werewolf), a new weapon needs to be made to complement it (WerewolfWeapon).</p>
+<pre><code>Observed Code Smells:
+- Parallel Inheritance Hierarchies (lines 66-118)
+</code></pre>
+<hr>
+<h4>Solution PIHGE1.java</h4>
+<p>Removed hierarchy in <code>VampireWeapon</code> and <code>GhoulWeapon</code> by replacing them with a <code>BasicWeapon</code> and moved their fields and methods to the new <code>BasicWeapon</code> class using <code>Move Method</code> and <code>Move Field</code>.</p>
+<pre><code>Refactoring Applied:
+- Parallel Inheritance Hierarchies
+    - Move Method and Move Field (BasicWeapon)
+</code></pre>
+<pre><code>Observed Code Smells After Refactoring:
+- None
+</code></pre>
+<h2>When to Ignore</h2>
+<p>Sometimes having parallel inheritance hierarchies can make sense, where applying the treatments can lead to messier code.</p>
+<h3>More</h3>
+<p><a href="https://refactoring.guru/smells/parallel-inheritance-hierarchies">More about Parallel Inheritance Hierarchies</a></p>
+</main>
+			
+		</body></html>

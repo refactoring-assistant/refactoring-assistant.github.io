@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="en"><head>
+				<meta charset="UTF-8">
+				<title></title>
+				<meta name="viewport" content="width=device-width,initial-scale=1">
+			</head>
+			<body>
+				<nav>
+				</nav>
+				<main><h1>Data Clumps</h1>
+<h2>Description (What)</h2>
+<p>An identical group of variables show up repeatedly.</p>
+<p>These could be variables for connecting to a database, a client or repeatedly being passed across methods</p>
+<h2>How to Locate It (Where)</h2>
+<p>Look for repeated sets of variables in method arguments</p>
+<h2>How It Manifests (Why)</h2>
+<p>It's often easier to keep sending the list of variables to different functions.</p>
+<p>It could also be due to 'copypasta programming'.</p>
+<h2>How to Fix It (Possible Treatments)</h2>
+<p>In Example 1, <code>Extract Class</code> is used to create a new class for the data clumps and the new class is passed in method arguments instead of the variables separately.</p>
+<p>We want to be able to reduce the amount of parameters we pass to methods and also by passing an object of a class created for parameters, we make it easier to change anything about the parameters themselves in a single place instead of in all methods that take those parameters.</p>
+<p>Other treatments are also possible based on the specific scenario, they can be found <a href="https://refactoring.guru/smells/data-clumps#:~:text=Treatment">here</a></p>
+<h2>Examples</h2>
+<h3>Example 1</h3>
+<h4>Before: DataClumpsSmelly.java</h4>
+<p>The connection variables for the MongoDB connection are an identical group of variables that need to be grouped together.</p>
+<pre><code>Observed Code Smells:
+- Data Clumps (lines 2-5) 
+</code></pre>
+<hr>
+<h4>After: DataClumpsRefactored.java</h4>
+<p>Applied <code>Extract Class</code> on the variables to create their own class to be passed to the actual connecting class</p>
+<pre><code>Refactoring Applied:
+- Data Clumps
+    - Extract Class (MongoDbConnectionVariables)
+</code></pre>
+<pre><code>Observed Code Smells After Refactoring:
+- None
+</code></pre>
+<hr>
+<hr>
+<h3>Example 2</h3>
+<h4>Before: DataClumpsSmelly.java</h4>
+<hr>
+<h4>After: DataClumpsRefactored.java</h4>
+<h2>When to Ignore</h2>
+<p>In cases where passing an object in method parameters might create an undesirable dependency between two classes</p>
+<h3>More</h3>
+<p><a href="https://refactoring.guru/smells/data-clumps">More about Data Clumps</a></p>
+</main>
+			
+		</body></html>

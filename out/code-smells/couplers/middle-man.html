@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="en"><head>
+				<meta charset="UTF-8">
+				<title></title>
+				<meta name="viewport" content="width=device-width,initial-scale=1">
+			</head>
+			<body>
+				<nav>
+				</nav>
+				<main><h1>Middle Man</h1>
+<h2>Description (What)</h2>
+<p>Middle Man is a class whose sole purpose in existence is to act as an intermediary between two other classes.</p>
+<h2>How to Locate It (Where)</h2>
+<p>Look at classes that simply act as a gateway for data to passed between two other classes. Classes that do only delegation work of moving data are generally considered as <code>Middle Man</code>s. Remember that a <code>Middle Man</code> doesn't do anything more than this. If a class looks like a <code>Middle Man</code> but also performs actual work on the data itself like processing, cleaning, converting, it is not a <code>Middle Man</code>.</p>
+<h2>How It Manifests (Why)</h2>
+<p>Trying to minimize the <code>Message Chains</code> code smell might end up bringing about this code smell.</p>
+<p>It can also occur due to the slow removal of functions of a class to the point where it only delegates work at one stage.</p>
+<h2>How to Fix It (Possible Treatments)</h2>
+<p>In Example 1, <code>Remove Middle Man</code> treatment is used which simply means deleting the class that acts as a middle man and rerouting method calls directly to the main class which the middle man was acting as a facade for.</p>
+<p>Other treatments are also possible based on the specific scenario, they can be found <a href="https://refactoring.guru/smells/middle-man#:~:text=Treatment">here</a></p>
+<h2>Examples</h2>
+<h3>Example 1</h3>
+<h4>Problem MMBE1.java</h4>
+<p><code>ProductHandler</code> acts as a middleman to <code>ProductManager</code> by giving it access to only what it needs.</p>
+<pre><code>Observed Code Smells:
+- Middle Man (lines 55-66)
+- Data Class (line 55-66)
+</code></pre>
+<hr>
+<h4>Solution MMBE1.java</h4>
+<p>Used <code>Remove Middle Man</code> by removing <code>ProductHandler</code> and letting <code>ProductManager</code> directly use <code>Product</code> methods</p>
+<pre><code>Refactoring Applied:
+- Middle Man
+    - Remove Middle Man (removed ProductHandler)
+</code></pre>
+<pre><code>Observed Code Smells After Refactoring:
+- None
+</code></pre>
+<h2>When to Ignore</h2>
+<p>In cases where a design pattern like the Proxy or Decorator Design Patterns are used</p>
+<p>In cases where adding a middle man removes unnecessary interdependence between two classes</p>
+<h2>More</h2>
+<p><a href="https://refactoring.guru/smells/middle-man">More about Middle Man</a></p>
+</main>
+			
+		</body></html>

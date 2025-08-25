@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="en"><head>
+				<meta charset="UTF-8">
+				<title></title>
+				<meta name="viewport" content="width=device-width,initial-scale=1">
+			</head>
+			<body>
+				<nav>
+				</nav>
+				<main><h1>Message Chains</h1>
+<h2>Description (What)</h2>
+<p>Message chains are simply multiple chained calls to functions to retrieve data. Message chains create a chain of dependency throughout the program which can be harder to keep track of as the chain increases and any changes made at any part of the chain might require refactoring in other parts of the chain</p>
+<h2>How to Locate It (Where)</h2>
+<p>Look for calls resembling <code>a().b().c().d()</code> where data is being retrieved through a chain of function calls where each function in the call calls another function and retrieves data from it.</p>
+<h2>How It Manifests (Why)</h2>
+<p>While writing code in silos, it comes naturally that when you need to interact between Classes or Methods, it will require using chains to bring information to the client surface.</p>
+<h2>How to Fix It (Possible Treatments)</h2>
+<p>In Example 1, <code>Hide Delegate</code> is used to push the chain to an inner class which leads the message chain being hidden behind a single public method which itself contains a chain of private or internal methods. <code>Hide Delegate</code> simplifies the end call for the client.</p>
+<p>Other treatments are also possible based on the specific scenario, they can be found <a href="https://refactoring.guru/smells/message-chains#:~:text=Treatment">here</a></p>
+<h2>Examples</h2>
+<h3>Example 1</h3>
+<h4>Problem MCBE1.java</h4>
+<p>For the vehicle to get the address for the latest order to be delivered, it needs to go through a message chain of going to the <code>Distributor</code> object which returns a <code>Warehouse</code> object which returns an <code>Order</code> object from which the address can be retrieved.</p>
+<pre><code>Observed Code Smells:
+- Message Chains (line 117)
+</code></pre>
+<hr>
+<h4>Solution MCGE1.java</h4>
+<p>Applied <code>Hide Delegate</code> by adding a new public method <code>getLatestOrderDestination</code> to <code>Distributor</code> class to make the calls internal
+Removed <code>getWarehouse()</code> method from <code>Distributor</code> so it remains private and reduces its public exposure.</p>
+<pre><code>Refactoring Applied:
+- Message Chains
+    - Hide Delegate (getWarehouse())
+</code></pre>
+<pre><code>Observed Code Smells After Refactoring:
+- None
+</code></pre>
+<h2>When to Ignore</h2>
+<p>In cases where solving this code smell might inadvertently cause the <code>Middle Man</code> code smell.</p>
+<h2>More</h2>
+<p><a href="https://refactoring.guru/smells/message-chains">More about Message Chains</a></p>
+</main>
+			
+		</body></html>
