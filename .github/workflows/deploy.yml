@@ -32,6 +32,19 @@ jobs:
       - name: Build site
         run: npm run build
 
+      - name: Check if out/ directory exists
+        run: |
+          if [ -d "out" ]; then
+            echo "out directory exists"
+          else
+            echo "Error: out dir not found"
+            exit 1
+          fi
+
+      - name: Move public to out
+        run: |
+          mv public/* out/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
