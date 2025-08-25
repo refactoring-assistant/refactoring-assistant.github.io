@@ -3,4 +3,3 @@ out/*
 !out/
 .DS_Store
 node_modules/
-code-smells/
