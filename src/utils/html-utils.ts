@@ -39,7 +39,7 @@ function addNavToIndex(nav) {
 
 export function createNav(smells) {
 	const nav = '<ul>' + smells.map((smell) => {
-		const tag = `<li><a href='/${smell.href}'>${smell.type}/${smell.name}</a></li>`;
+		const tag = `<li><a href='/${smell.href}'>${smell.name}</a></li>`;
 		return tag;
 	}).join("") + '</ul>';
 	
