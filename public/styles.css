@@ -1,3 +1,32 @@
 * {
 	font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
+
+nav > ul {
+	list-style: none;
+	display: flex;
+	gap: 1rem;
+	padding: 0.2rem;
+	background-color: #353F45;
+	flex-wrap: wrap;
+}
+
+nav > ul > li > a {
+	color: white;
+	text-decoration: none;
+	padding: 0.2rem;
+}
+
+nav > ul > li > a:hover {
+	background-color: #1F2529;
+	text-decoration: underline;
+}
+
+main {
+	padding: 0.4rem;
+}
+
+
