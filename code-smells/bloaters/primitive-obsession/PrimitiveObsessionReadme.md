@@ -13,11 +13,15 @@ Look at the fields of the class to determine if some of the variables could bene
 
 ## How It Manifests (Why)
 
-Developers often make fields of a class early on without knowing the full extent of the variable's scope and capabilites, which leads to sticking with primitive fields for the time being but are then never updated to a specific data type.
+Developers often make fields of a class early on without knowing the full extent of the variable's scope and capabilities, which leads to sticking with primitive fields for the time being but are then never updated to a specific data type.
 
 ## How to Fix It (Possible Treatments)
 
-Example 1 below uses the treatment `Replace Data Value With Object` which is used when you have a set of fields that can be logically grouped together into an Object. This is useful for example when you have a set of fields that might require validation together and the values depend on each other in some way
+Example 1 below uses the treatment `Replace Data Value With Object` which is used when you have a set of fields that can be logically grouped together into an Object. 
+
+This is useful for example when you have a set of fields that might require validation together and the values depend on each other in some way.
+
+Example 2 below also uses the treatment `Replace Data Value With Object`, as explained above.
 
 Other treatments are also possible based on the specific scenario, they can be found [here](https://refactoring.guru/smells/primitive-obsession#:~:text=Treatment)
 
@@ -25,7 +29,7 @@ Other treatments are also possible based on the specific scenario, they can be f
 
 ### Example 1
 
-#### Problem POBE1.java
+#### Before:
 
 ```
 Observed Code Smells:
@@ -35,13 +39,45 @@ Observed Code Smells:
 
 ---
 
-#### Solution POGE1.java
+#### After:
 Applied `Replace Data Value with Object` treatment
 
 ```
 Refactoring Applied:
 - Primitive Obsession
     - Added `CardboardBox` class to move primitives into their own class
+```
+
+```
+Observed Code Smells After Refactoring:
+- None
+```
+
+### Example 2
+
+#### Before:
+
+For the array of TutorialModals, it poses the issues of Primitive Obsession rather than using an Object
+
+to encapsulate the information related to TutorialModals.
+
+```
+Observed Code Smells:
+- Primitive Obsession (line 9, lines 15-19).
+```
+
+---
+
+#### After:
+
+Applied `Replace Array with Object` to get rid of the array of type String.
+
+A new class `TutorialModalManager` is created to deal with assign tutorials.
+
+```
+Refactoring Applied:
+- Primitive Obsession
+    - Replace Array with Object (line 6-45, line 50, lines 61-63).
 ```
 
 ```

@@ -6,7 +6,9 @@ A method which has greater than 3 or 4 parameters in its parameter list
 
 ## How to Locate it (Where)
 
-Look for constructors, methods that take in more than 3 or 4 parameters, especially parameters that are logically related and can be made part of the same object
+Look for constructors, methods that take in more than 3 or 4 parameters, 
+
+especially parameters that are logically related and can be made part of the same object.
 
 ## How It Manifests (Why)
 
@@ -24,7 +26,8 @@ Other treatments are also possible based on the specific scenario, they can be f
 
 ### Example 1
 
-#### Before: LPLBE1.java
+#### Before: 
+
 The method calculateDistance has 4 parameters (2 of which are logically similar)
 
 ```
@@ -32,13 +35,37 @@ Observed Code Smells:
 - Long Parameter List (line 4)
 ```
 
-#### After: LPLGE1.java
+#### After:
+
 Applied 'Introduce Parameter Object' and added a LocationCoordinates class to hold the values with getters.
 
 ```
 Refactoring Applied:
 - Long Parameter List
     - Introduce Parameter Object (LocationCoordinates)
+```
+
+```
+Observed Code Smells After Refactoring:
+- None
+```
+
+### Example 2
+
+#### Before:
+
+The logic of activatePromotion is there but instead of calling the relevant method to catch the logic,
+
+it passes new unnecessary parameters.
+
+#### After:
+
+Applied `Replace Parameter with Method Call` to get rid of the long parameter list but preserve the logics.
+
+```
+Refactoring Applied:
+- Long Parameter List
+    - Replace Parameter with Method Call (line 45-66)
 ```
 
 ```

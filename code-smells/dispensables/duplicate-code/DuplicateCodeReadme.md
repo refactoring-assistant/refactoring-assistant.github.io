@@ -17,7 +17,11 @@ Two different developers might make two different functions that perform the sam
 
 In Example 1, two methods perform identical functions but have different names in which case `Extract Method` is used to combine both the functions into a single function.
 
-There are mutliple possible situations in which duplicate code might arise, like when two subclasses have duplicate methods or if duplicate code is found in two different classes.
+There are multiple possible situations in which duplicate code might arise, like when two subclasses have duplicate methods or if duplicate code is found in two different classes.
+
+In Example 2, `Extract Method` is used, meaning that we could extract the reusable logics and make it a private method. This treatment is mainly used for some similar logic appearing
+
+in the codebase for multiple times.
 
 Other treatments are also possible based on the specific scenario, they can be found [here](https://refactoring.guru/smells/duplicate-code#:~:text=Treatment)
 
@@ -25,8 +29,8 @@ Other treatments are also possible based on the specific scenario, they can be f
 
 ### Example 1
 
+#### Before:
 
-#### Problem DUPCBE1.java
 Functions Add() and Sum() are functionally identical.
 
 ```
@@ -34,7 +38,8 @@ Observed Code Smells:
 - Duplicate Code (lines 10-12, 26-29 )
 ```
 
-#### Solution DUPCGE1.java
+#### After:
+
 Applied `Extract Method` as it’s a duplication in the same class.
 
 ```
@@ -48,6 +53,35 @@ Observed Code Smells After Refactoring:
 - None
 ```
 
+### Example 2
+
+#### Before:
+
+Usually, the duplicated part can be extracted as a method.
+
+It may be just the code are produced by 2 different developers and someone has to refactor
+
+to get rid of the duplication.
+
+```
+Observed Code Smells:
+- Duplicated Code (lines 26-28, lines 41-43)
+```
+
+#### After:
+
+Identify the duplicated code and extract them as a private helper method.
+
+```
+Refactoring Applied:
+- Duplicated Code:
+    - Extract method (lines 42-49)
+```
+
+```
+Observed Code Smells After Refactoring:
+- None
+```
 ## More
 
 [More about Duplicate Code](https://refactoring.guru/smells/duplicate-code)

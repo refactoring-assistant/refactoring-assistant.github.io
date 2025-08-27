@@ -1,5 +1,3 @@
-package refactored;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.io.File;
 
-class TextAnalyzer {
+class TextAnalyzerVariation {
   private final String WORD_COUNT = "Word count: ";
   private final String SENTENCE_COUNT = "Sentence count: ";
   private final String AVG_WORD_LENGTH_COUNT = "Average word length: ";
@@ -70,11 +68,10 @@ class TextAnalyzer {
   }
 }
 
-public class LongMethodRefactored {
+public class LMGE2 {
   public static void main(String[] args) {
     TextAnalyzer analyzer = new TextAnalyzer();
-    String filePath = File.separator + "Users" + File.separator + "lessouffrances" + File.separator +
-      "desktop" + File.separator + "Conceptual Design of Naming Conventions.txt";
+    String filePath = "random_text.txt";
     analyzer.analyze(filePath);
   }
 }

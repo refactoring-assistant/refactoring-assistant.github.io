@@ -16,14 +16,18 @@ Speculative Generality appears when a lot of code is written that is intended to
 
 In Example 1, `Collapse Hierarchy` is used to remove an unused abstract class. `Collapse Hierarchy` can be used to simplify hierarchies that were made for far flung future work but work towards increasing technical debt more than the extendability of the program.
 
+In Example 2, `Remove Method` is used to remove the strategic planning code. Developers could be considerate in a good way when they design the architecture,
+
+but when it comes to the usability of the code, the strategic part does not function well. 
+
 Other treatments are also possible based on the specific scenario, they can be found [here](https://refactoring.guru/smells/speculative-generality#:~:text=Treatment)
 
 ## Examples
 
 ### Example 1
 
+#### Before:
 
-#### Problem SGBE1.java
 An abstract class `Shape` was created with the hope of future use, but it was never used anywhere.
 
 ```
@@ -33,13 +37,44 @@ Observed Code Smells:
 
 ---
 
-#### Solution SGGE1.java
+#### After:
+
 Deleted the unused abstract class by `Collapse Hierarchy`.
 
 ```
 Refactoring Applied:
 - Speculative Generality
     - Collapse Hierarchy (Deleted the unused abstract class Shape)
+```
+
+```
+Observed Code Smells After Refactoring:
+- None
+```
+
+### Example 2
+
+#### Before:
+
+The structure of different memberships are there for strategic design, but the memberships are not
+
+currently put into use.
+
+```
+Observed Code Smells:
+- Speculative Generality (line 10-59)
+```
+
+---
+
+#### After:
+
+Simply delete the code to get the codebase organized.
+
+```
+Refactoring Applied:
+- Remove Method:
+    -  (The classes and methods no longer exist.)
 ```
 
 ```

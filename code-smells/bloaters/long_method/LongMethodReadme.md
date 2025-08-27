@@ -29,7 +29,8 @@ Other treatments are also possible based on the specific scenario if `Extract Me
 
 ### Example 1
 
-#### Before: LongMethodSmelly.java
+#### Before: 
+
 The method `boardFlight()` does a lot of work that can make it confusing to understand and should be broken into smaller methods.
 
 ```
@@ -39,7 +40,7 @@ Observed Code Smells:
 
 ---
 
-#### After: LongMethodRefactored.java
+#### After: 
 
 Applied `Extract Method`s to the method and created three new methods `securityCheck`, `noFlyListCheck`, `passengerCanBoard`.
 
@@ -61,15 +62,17 @@ Observed Code Smells After Refactoring:
 
 ### Example 2
 
-#### Before: LongMethodSmelly.java
+#### Before: 
 
-The class TextAnalyzer is a utility class that contains a useful method to calculate information about a .txt file.
+The class TextAnalyzerVariation is a utility class that contains a useful method to calculate information about a .txt file.
+
 The 'analyze' method is now doing everything:
 1. Calculate the word count,
 2. Calculate the sentence count,
 3. Calculate the average word length,
 4. Identify the most common word.
-which, makes the method extremely long.
+
+5. which, makes the method extremely long.
 
 ```
 Observed Code Smells:
@@ -78,7 +81,8 @@ Observed Code Smells:
 
 ---
 
-#### After: LongMethodRefactored.java
+#### After: 
+
 Applied `Extract Method` to take each calculation out as a separate method.
 
 ```

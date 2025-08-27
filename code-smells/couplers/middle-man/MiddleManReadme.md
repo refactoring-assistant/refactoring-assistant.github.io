@@ -18,13 +18,16 @@ It can also occur due to the slow removal of functions of a class to the point w
 
 In Example 1, `Remove Middle Man` treatment is used which simply means deleting the class that acts as a middle man and rerouting method calls directly to the main class which the middle man was acting as a facade for.
 
+Example 2 is an ignoring case, please see `When to Igonore` on the page below. 
+
 Other treatments are also possible based on the specific scenario, they can be found [here](https://refactoring.guru/smells/middle-man#:~:text=Treatment)
 
 ## Examples
 
 ### Example 1
 
-#### Problem MMBE1.java
+#### Before:
+
 `ProductHandler` acts as a middleman to `ProductManager` by giving it access to only what it needs.
 
 ```
@@ -35,7 +38,8 @@ Observed Code Smells:
 
 ---
 
-#### Solution MMBE1.java
+#### After:
+
 Used `Remove Middle Man` by removing `ProductHandler` and letting `ProductManager` directly use `Product` methods
 
 ```
@@ -47,6 +51,22 @@ Refactoring Applied:
 ```
 Observed Code Smells After Refactoring:
 - None
+```
+
+### Example 2
+
+#### Before:
+
+The class LucyChart is a proxy to gate keeping all the original servicing objects: Draw, Move and Resize.
+
+The class LucyChart is doing little other than delegating all the works to other classes.
+
+The class LucyChart is a 'middle man' in this case.
+
+```
+Observed Code Smells:
+-  Middle Man (line 60-91)
+  - In this case, the coding follows the proxy pattern, where the 'middle man' code smell can be ignored.
 ```
 
 ## When to Ignore

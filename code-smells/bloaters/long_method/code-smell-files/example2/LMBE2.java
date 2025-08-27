@@ -1,12 +1,9 @@
-package smelly;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.io.File;
 
 class TextAnalyzer {
   private final String WORD_COUNT = "Word count: ";
@@ -53,11 +50,10 @@ class TextAnalyzer {
   }
 }
 
-public class LongMethodSmelly {
+public class LMBE2 {
   public static void main(String[] args) {
     TextAnalyzer analyzer = new TextAnalyzer();
-    String filePath = File.separator + "Users" + File.separator + "lessouffrances" + File.separator +
-      "desktop" + File.separator + "Conceptual Design of Naming Conventions.txt";
+    String filePath = "random_text.txt";
     analyzer.analyze(filePath);
   }
 }

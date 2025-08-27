@@ -16,13 +16,18 @@ Libraries can become outdated and stay read-only, in which cases, developers the
 
 In Example 1, we use `Foreign Method`. This treatment introduces a dedicated method in which we call the library and perform the necessary additions and return the expected output for our use case. This way, we limit the scope of the external library to a single method in our program and use this method every we require the use of this library.
 
+In Example 2, `Introduce Local Extension` is used. The related library exists, but the methods are not quite comprehensive due to version issues.
+
+Developers are restricted to JDK version when they write code, hence, it is reasonable to extend the library of some version.
+
 Other treatments are also possible based on the specific scenario, they can be found [here](https://refactoring.guru/smells/incomplete-library-class#:~:text=Treatment)
 
 ## Examples
 
 ### Example 1
 
-#### Problem ILCBE1.java
+#### Before:
+
 Using the Math class, there is no enum for the square root of twice Pi but there is an enum for Pi.
 
 ```
@@ -32,13 +37,46 @@ Observed Code Smells:
 
 ---
 
-#### Solution ILCGE1.java
+#### After:
+
 Applied `Foreign Method` to create a private method to calculate the square root of twice Pi which can be used instead of calculating it everytime.
 
 ```
 Refactoring Applied:
 - Incomplete Library Class
     - Foreign Method (sqrtTwoPi)
+```
+
+```
+Observed Code Smells After Refactoring:
+- None
+```
+
+### Example 2
+
+#### Before:
+
+The BiConsumer interface from the current Java version can only take 2 parameters.
+
+It will be better if we have a TriConsumer to take 3 parameters.
+
+It is impossible for a developer to know every library, so this time the BiConsumer can be extended.
+
+```
+Observed Code Smells:
+- Incomplete Library Class(line 36, line 68)
+```
+
+---
+
+#### After:
+
+The developer can extend the interface BiConsumer, overwriting the method to accept 3 parameters.
+```
+
+Refactoring Applied:
+- Incomplete Library Class:
+    - Introduce Local Extension (lines 36-37)
 ```
 
 ```

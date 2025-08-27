@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/couplers.iml" filepath="$PROJECT_DIR$/.idea/couplers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/feature-envy/feature-envy.iml" filepath="$PROJECT_DIR$/feature-envy/feature-envy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/inappropriate-intimacy/inappropriate-intimacy.iml" filepath="$PROJECT_DIR$/inappropriate-intimacy/inappropriate-intimacy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/incomplete-library-class/incomplete-library-class.iml" filepath="$PROJECT_DIR$/incomplete-library-class/incomplete-library-class.iml" />
+      <module fileurl="file://$PROJECT_DIR$/message-chains/message-chains.iml" filepath="$PROJECT_DIR$/message-chains/message-chains.iml" />
+      <module fileurl="file://$PROJECT_DIR$/middle-man/middle-man.iml" filepath="$PROJECT_DIR$/middle-man/middle-man.iml" />
+    </modules>
+  </component>
+</project>

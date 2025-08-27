@@ -18,27 +18,64 @@ Data classes can also manifest from the requirement of the program structure suc
 
 In Example 1, `Encapsulate Field` is used to make fields private and create getters and setters for them. Then `Extract Method` is used to move methods from the original class that now fit better in the Data Class instead. The main motive to fixing `Data Class` should be to move as many methods that specifically only interact with those fields to the data class itself and add functionality beyond simply getting and setting to the data class in question.
 
+In Example 2, `Move Method` is used when we identify some methods actually should belong to the Data class, hence we simply
+
+move them back to the Data Class to get rid of the code smell.
+
 Other treatments are also possible based on the specific scenario, they can be found [here](https://refactoring.guru/smells/data-class#:~:text=Treatment)
 
 ## Examples
 
 ### Example 1
 
+#### Before:
 
-#### Problem DCLSBE1.java
-`Task` has only public fields and no getters or setters (encapsulation)
+`Task` has only public fields and no getters or setters (encapsulation).
+
 ```
 Observed Code Smells:
 - Data Class (lines 4-8)
 ```
 
-#### Solution DCLSGE1.java
+#### After:
+
 Applied `Encapsulate Field` for name, description and completed fields. Add applied `Extract method` to create the `markAsCompleted` method in the Task class.
+
 ```
 Refactoring Applied:
 - Data Class
     - Encapsulate Field (name, description, completed)
     - Extract Method(markAsCompleted)
+```
+
+```
+Observed Code Smells After Refactoring:
+- None
+```
+
+### Example 2
+
+#### Before:
+
+There are 2 classes: Plane and PartStudio.
+
+The misplacement of the method `calculateVolume` in PartStudio makes Plane a Data Class.
+
+The method `calculateVolume` should be in class Plane.
+
+```
+Observed Code Smells:
+-  Data Class (line 38-51).
+```
+
+#### After:
+
+Apply `Move Method`, moving the method back to class Plane would help to get rid of the code smell.
+
+```
+Refactoring Applied:
+- Data Class:
+    - Move Method (line 20-29).
 ```
 
 ```

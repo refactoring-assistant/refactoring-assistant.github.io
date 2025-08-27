@@ -24,11 +24,14 @@ Other treatments are also possible based on the specific scenario, they can be f
 
 ### Example 1
 
+#### Before:
 
-#### Problem DEDCBE1.java
 Shipment class has dead method `calculateDistance`  which has been 
+
 superseeded by method `calculateDistanceFast` and thus also making
+
 method `degToRad` dead.
+
 ```
 Observed Code Smells:
 - Dead Code (lines 9-14, 27-29)
@@ -36,13 +39,44 @@ Observed Code Smells:
 
 ---
 
-#### Solution DEDCGE1.java
+#### After:
+
 `Deleted` unused dead methods `calculateDistance` and `degToRad`.
 
 ```
 Refactoring Applied:
 - Dead Code
     - Deleted unused methods (calculateDistance and degToRad)
+```
+
+```
+Observed Code Smells After Refactoring:
+- None
+```
+
+### Example 2
+
+#### Before:
+
+The method `calculate2018BlackFridayPrice` is no longer applicable.
+
+Need to be refactored or deleted.
+
+```
+Observed Code Smells:
+-  Dead Code (line 34-50)
+```
+
+---
+
+#### After:
+
+Simple delete the code.
+
+```
+Refactoring Applied:
+- Dead Code:
+    - Remove Method (No longer exist).
 ```
 
 ```
