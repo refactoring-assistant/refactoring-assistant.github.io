@@ -7,3 +7,8 @@ export type CodeSmell = {
 export type CodeSmells = {
     [type: string]: CodeSmell[];
 }
+
+export interface CodeBlockProps {
+  code: string;
+  language?: string;
+}

@@ -2,6 +2,10 @@
 	font-family: sans-serif;
 }
 
+:root {
+	font-size: 13px;
+}
+
 /* Navbar */
 
 nav {
@@ -71,15 +75,11 @@ body {
 	padding: 0;
 }
 
-main {
-	padding: 1rem;
-}
-
 h1, h2 {
 	text-decoration: underline;
 }
 
-pre {
+pre:not(.code-block) {
 	background-color: rgba(39, 39, 48, 0.158);
 	padding: 0.5rem;
 	border-left: 4px solid rgb(63, 72, 81);
@@ -97,4 +97,21 @@ code:not(pre code) {
 
 hr {
 	border: dotted;
+}
+
+main {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+
+}
+
+main > section:first-child {
+	padding: 1rem;
+	overflow-x: scroll;
+}
+
+main > section:nth-child(2) {
+	border-left: 3px solid black;
+	padding-left: 4px;
+	overflow-x: scroll;
 }

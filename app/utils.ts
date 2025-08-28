@@ -18,6 +18,16 @@ export function capitalize(name: string) {
 	return capitalized.join(' ');
 }
 
+export function readFilesSafely(folder: string, endsWith: string) {
+    if (!fs.existsSync(folder)) return [];
+    const files = fs.readdirSync(folder).filter(f => f.endsWith(endsWith));
+    if (!files.length) return [];
+    return files.map(f => {
+      const filePath = path.join(folder, f);
+      return fs.existsSync(filePath) ? fs.readFileSync(filePath, 'utf-8') : '';
+    });
+  }
+
 export function createSmellsJson() {
     const contentDir = path.join(process.cwd(), CONTENT_DIR);
 
