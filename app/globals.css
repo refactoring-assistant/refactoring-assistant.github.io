@@ -12,13 +12,15 @@ nav {
 	display: flex;
 }
 
-nav, nav > ul, nav > ul > h3 {
+nav,
+nav>ul,
+nav>ul>h3 {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
 
-nav > ul {
+nav>ul {
 	list-style: none;
 	background-color: rgb(63, 72, 81);
 	width: 100%;
@@ -28,7 +30,7 @@ nav > ul {
 	border-right: 1px solid white;
 }
 
-nav > ul > h3 {
+nav>ul>h3 {
 	font-size: 1rem;
 	font-weight: 500;
 	padding: 0.2rem;
@@ -37,16 +39,16 @@ nav > ul > h3 {
 	background-color: rgb(39, 39, 48);
 }
 
-nav > ul > li > a {
+nav>ul>li>a {
 	color: white;
 	text-decoration: none;
 	padding: 0.2rem;
-	cursor:pointer;
+	cursor: pointer;
 }
 
-nav > ul > li > a:hover {
+nav>ul>li>a:hover {
 	background-color: rgb(38, 43, 49);
-	cursor:pointer;
+	cursor: pointer;
 	text-decoration: underline;
 }
 
@@ -56,16 +58,15 @@ nav > ul > li > a:hover {
 
 .title {
 	display: block;
-  width: 100%;
-  font-weight: 600;
-  padding: 0.4rem;
-  color: white;
-  border-bottom: 1px solid white;
-  text-decoration: none;
+	font-weight: 600;
+	padding: 0.4rem;
+	color: white;
+	border-bottom: 1px solid white;
+	text-decoration: none;
 }
 
 .title:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 /* Markdown generated HTML */
@@ -75,7 +76,8 @@ body {
 	padding: 0;
 }
 
-h1, h2 {
+h1,
+h2 {
 	text-decoration: underline;
 }
 
@@ -105,12 +107,12 @@ main {
 
 }
 
-main > section:first-child {
+main>section:first-child {
 	padding: 1rem;
 	overflow-x: scroll;
 }
 
-main > section:nth-child(2) {
+main>section:nth-child(2) {
 	border-left: 3px solid black;
 	padding-left: 4px;
 	overflow-x: scroll;
