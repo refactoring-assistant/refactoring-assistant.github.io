@@ -16,6 +16,7 @@ export default function Home() {
             <li>Layla Dong at <Link href="mailto:souffrances.research@gmail.com">souffrances.research@gmail.com</Link></li>
             <li>Yash Mahesh Burshe at <Link href="mailto:burshe.y@northeastern.edu">burshe.y@northeastern.edu</Link></li>
           </ul>
+          <p>You can find the GitHub repository <Link href="https://github.com/refactoring-assistant/refactoring-assistant.github.io">here</Link>.</p>
         </section>
       </main>
     </div>
