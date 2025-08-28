@@ -17,7 +17,7 @@ export default function CodeBlock({ code, language = 'java' }: CodeBlockProps) {
         <pre style={style} className={className}>
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line })}>
-              <span>{String(i+1).padStart(2, '0')}</span>
+              <span>{String(i+1).padStart(3, '0')}&nbsp;&nbsp;</span>
               {line.map((token, key) => (
                 <span key={key} {...getTokenProps({ token })} />
               ))}
