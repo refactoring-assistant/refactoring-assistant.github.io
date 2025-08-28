@@ -44,7 +44,11 @@ export async function generateStaticParams() {
 
 function getExamples(folderPath: string) {
   const exampleOnePath = path.join(folderPath, 'code-smell-files/example1');
-  const exampleTwoPath = path.join(folderPath, 'code-smell-files/example2');
+  let exampleTwoPath = path.join(folderPath, 'code-smell-files/example2');
+  const ignoreExampleTwoPath = path.join(folderPath, 'code-smell-files/ignore-example2');
+  if (fs.existsSync(ignoreExampleTwoPath)) {
+    exampleTwoPath = ignoreExampleTwoPath;
+  }
 
   const beforeExampleOneContents = readFilesSafely(exampleOnePath, 'BE1.java');
   const afterExampleOneContents = readFilesSafely(exampleOnePath, 'GE1.java');
