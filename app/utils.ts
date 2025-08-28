@@ -21,8 +21,6 @@ export function capitalize(name: string) {
 export function createSmellsJson() {
     const contentDir = path.join(process.cwd(), CONTENT_DIR);
 
-    console.log("Content directory:", contentDir);
-
 	if(!fs.existsSync(contentDir)) {
 		throw new Error(`Content directory at ${contentDir} does not exist.`);
 	}

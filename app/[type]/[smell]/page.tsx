@@ -11,7 +11,6 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { type, smell } = await params;
-  console.log(typeof(type), typeof(smell));
   const cleanedName = capitalize(cleanName(smell));
   const cleanedType = capitalize(cleanName(type));
   return {
