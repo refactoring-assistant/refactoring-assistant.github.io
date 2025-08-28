@@ -13,7 +13,7 @@ export default function Home() {
         <section>
           <p>For any queries, please contact</p>
           <ul>
-            <li>Layla Dong at <Link href="mailto:dong.pa@northeastern.edu">dong.pa@northeastern.edu</Link></li>
+            <li>Layla Dong at <Link href="mailto:souffrances.research@gmail.com">souffrances.research@gmail.com</Link></li>
             <li>Yash Mahesh Burshe at <Link href="mailto:burshe.y@northeastern.edu">burshe.y@northeastern.edu</Link></li>
           </ul>
         </section>
