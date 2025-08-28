@@ -24,6 +24,7 @@ nav>ul {
 	flex-direction: column;
 	gap: .6rem;
 	border-right: 1px solid white;
+	padding-bottom: 0.4rem;
 }
 
 nav>ul>h3 {
