@@ -1,7 +1,7 @@
 # Feature Envy
 ## Description (What)
 
-When one method accesses the fields or methods of another object more than it does itself
+When one method accesses the data of another object more than it does itself
 
 ## How to Locate It (Where)
 
