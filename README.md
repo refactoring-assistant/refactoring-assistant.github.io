@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# refactoring-assistant.github.io
 
-## Getting Started
+## Repository of code smells
 
-First, run the development server:
+### How to navigate
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+In the `code-smells` folder you will find the following example file structure:
+
+```
+code-smells/
+└── bloaters/
+    └── data-clumps/
+        ├── code-smell-files/
+        │   ├── example1/
+        │   │   ├── DCGE1.java
+        │   │   └── DCBE1.java
+        │   └── example2/
+        │       ├── DCBE2.java
+        │       └── DCGE2.java
+        └── DataClumpsReadme.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Each `example` folder has two files in it, a 'good' example and a 'bad' example.
+A 'bad' example is a code file that contains the code smell mentioned by its parent folder and a 'good' example is a code file that does NOT contain THAT code smell in it.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+A 'good' example code file ends with a `GE` at the end of the file name and a 'bad' example code file ends with a `BE` at the end of the file name.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+In each `code smell` folder, there is a markdown file named `CodeSmellNameReadme.md` which contains information about the code smell such as:
 
-## Learn More
+ - Description (What is it)
+ - How to Locate It (Where you might find it)
+ - How It Manifests (Why it may have been introduced)
+ - How to Fix It (Possible Treatments)
 
-To learn more about Next.js, take a look at the following resources:
+> **Note:** In the `How to Fix It` section, you will find that there are only 1 or 2 treatments listed. These are the treatments that have been used to fix the 'bad' example code files. There may be more treatments listed. You can find these other treatments at the link at the end of the section.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Using the website
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+A website is also available to more easily browse this repository [here](https://refactoring-assistant.github.io)
 
-## Deploy on Vercel
+At the top of the website is the navbar where code smells have been separated by their types.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Clicking on a code smell will bring you to a two pane view. On the left side is the HTML equivalent of the markdown file associated with the code smell and on the right is a tabbed code viewer.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+In the tabbed code viewer, the top two tabs are the two different examples and each tab then contains two tabs to show the state of the code before (with code smell) and after refactoring (without code smell).
