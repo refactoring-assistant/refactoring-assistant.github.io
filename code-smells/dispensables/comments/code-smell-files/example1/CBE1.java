@@ -163,7 +163,3 @@ class ImageModel {
     }
 
 }
-
-public class CBE1 {
-
-}

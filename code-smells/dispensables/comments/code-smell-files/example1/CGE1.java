@@ -158,7 +158,3 @@ class ImageModel {
     }
 
 }
-
-public class CGE1 {
-
-}
