@@ -38,8 +38,6 @@ Observed Code Smells:
 - Long Method (line 62-92)
 ```
 
----
-
 #### After: 
 
 Applied `Extract Method`s to the method and created three new methods `securityCheck`, `noFlyListCheck`, `passengerCanBoard`.
@@ -57,7 +55,6 @@ Observed Code Smells After Refactoring:
 
 >Note: The if-else-if statements in boardAirplane() method are not considered a code smell because of the ignore case in Switch Statements code smell `When a switch operator performs simple actions, there’s no reason to make code changes`
 
----
 ---
 
 ### Example 2
@@ -78,8 +75,6 @@ The 'analyze' method is now doing everything:
 Observed Code Smells:
 - Long Method (lines 17-53, roughly)
 ```
-
----
 
 #### After: 
 

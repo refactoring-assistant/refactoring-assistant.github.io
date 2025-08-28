@@ -35,8 +35,6 @@ Observed Code Smells:
 - Refused Bequest (lines 93-101)
 ```
 
----
-
 #### After:
 
 Applied Extract Superclass and removed the non-common functions from the interface Vehicle. Created a new interface that extends the old interface.
@@ -52,6 +50,8 @@ Refactoring Applied:
 Observed Code Smells After Refactoring:
 - None
 ```
+
+---
 
 ### Example 2
 

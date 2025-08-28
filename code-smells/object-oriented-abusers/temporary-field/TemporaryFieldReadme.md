@@ -35,8 +35,6 @@ Observed Code Smells:
 - Temporary Field (lines 4-5)
 ```
 
----
-
 #### After:
 
 Applied `Extract Class` to extract all the methods into their own Classes 'LinearSolver', 'QuadraticSolver' and 'CubicSolver' and deleted the original 'PolynomialSolver' class
@@ -52,6 +50,8 @@ Observed Code Smells After Refactoring:
 - None
 ```
 
+---
+
 ### Example 2
 
 #### Before:
@@ -66,8 +66,6 @@ from NullPointer issues.
 Observed Code Smells:
 -  Temporary field (line 40, 47, 54)
 ```
-
----
 
 #### After:
 

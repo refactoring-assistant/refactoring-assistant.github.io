@@ -36,8 +36,6 @@ Observed Code Smells:
 - Data Clumps (lines 2-5) 
 ```
 
----
-
 #### After:
 Applied `Extract Class` on the variables to create their own class to be passed to the actual connecting class
 
@@ -62,8 +60,6 @@ There are several pair of start and end dates of type `Date` appearing in the pa
 No matter it is a start date for amounts, checking for overlaps or leases, they are a pair of data which can be introduced
 
 as a `Paramter Object`.
-
----
 
 #### After: 
 Apply `Introduce Parameter Object` by creating a new class called `DateRange`,

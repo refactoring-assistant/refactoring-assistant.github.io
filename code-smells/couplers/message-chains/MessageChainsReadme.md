@@ -35,8 +35,6 @@ Observed Code Smells:
 - Message Chains (line 117)
 ```
 
----
-
 #### After:
 
 Applied `Hide Delegate` by adding a new public method `getLatestOrderDestination` to `Distributor` class to make the calls internal
@@ -53,6 +51,8 @@ Refactoring Applied:
 Observed Code Smells After Refactoring:
 - None
 ```
+
+---
 
 ### Example 2
 
@@ -74,8 +74,6 @@ In other words, Attendance Manager should not go through an employee to know if 
 Observed Code Smells:
 - Message Chains (line 78, line 82)
 ```
-
----
 
 #### After:
 

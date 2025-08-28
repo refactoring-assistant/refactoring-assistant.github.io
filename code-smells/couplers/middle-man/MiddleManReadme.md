@@ -36,8 +36,6 @@ Observed Code Smells:
 - Data Class (line 55-66)
 ```
 
----
-
 #### After:
 
 Used `Remove Middle Man` by removing `ProductHandler` and letting `ProductManager` directly use `Product` methods
@@ -52,6 +50,8 @@ Refactoring Applied:
 Observed Code Smells After Refactoring:
 - None
 ```
+
+---
 
 ### Example 2
 

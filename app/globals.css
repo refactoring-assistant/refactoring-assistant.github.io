@@ -1,0 +1,100 @@
+* {
+	font-family: sans-serif;
+}
+
+/* Navbar */
+
+nav {
+	display: flex;
+}
+
+nav, nav > ul, nav > ul > h3 {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+nav > ul {
+	list-style: none;
+	background-color: rgb(63, 72, 81);
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: .6rem;
+	border-right: 1px solid white;
+}
+
+nav > ul > h3 {
+	font-size: 1rem;
+	font-weight: 500;
+	padding: 0.2rem;
+	color: white;
+	border-bottom: 1px solid white;
+	background-color: rgb(39, 39, 48);
+}
+
+nav > ul > li > a {
+	color: white;
+	text-decoration: none;
+	padding: 0.2rem;
+	cursor:pointer;
+}
+
+nav > ul > li > a:hover {
+	background-color: rgb(38, 43, 49);
+	cursor:pointer;
+	text-decoration: underline;
+}
+
+.nav-wrapper {
+	background-color: rgb(34, 42, 52);
+}
+
+.title {
+	display: block;
+  width: 100%;
+  font-weight: 600;
+  padding: 0.4rem;
+  color: white;
+  border-bottom: 1px solid white;
+  text-decoration: none;
+}
+
+.title:hover {
+  text-decoration: underline;
+}
+
+/* Markdown generated HTML */
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+main {
+	padding: 1rem;
+}
+
+h1, h2 {
+	text-decoration: underline;
+}
+
+pre {
+	background-color: rgba(39, 39, 48, 0.158);
+	padding: 0.5rem;
+	border-left: 4px solid rgb(63, 72, 81);
+	overflow-x: auto;
+}
+
+code {
+	font-family: monospace;
+}
+
+code:not(pre code) {
+	color: green;
+	font-weight: bold;
+}
+
+hr {
+	border: dotted;
+}

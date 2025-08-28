@@ -35,8 +35,6 @@ Observed Code Smells:
 - Lazy Class (lines 29-33)
 ```
 
----
-
 #### After:
 
 Applied `Collapse Hierarchy` to remove the class given that it is the same as the super class `Cat`
@@ -51,6 +49,8 @@ Refactoring Applied:
 Observed Code Smells After Refactoring:
 - None
 ```
+
+---
 
 ### Example 2
 

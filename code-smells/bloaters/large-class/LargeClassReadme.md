@@ -33,8 +33,6 @@ Observed Code Smells:
 - Large Class (line 1-35)
 ```
 
----
-
 #### After: 
 
 Applied Extract Class to spin off some methods into their own class TrigonometricCalculator to reduce the size and responsibility of the Calculator class
@@ -63,8 +61,6 @@ Ordinary, Security and Manager.
 The constructors are overloaded to instantiate these 3 types of employees.
 
 But as the number of features increases, the class expands to create a code smell.
-
----
 
 #### After: 
 

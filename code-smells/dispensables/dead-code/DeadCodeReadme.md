@@ -37,8 +37,6 @@ Observed Code Smells:
 - Dead Code (lines 9-14, 27-29)
 ```
 
----
-
 #### After:
 
 `Deleted` unused dead methods `calculateDistance` and `degToRad`.
@@ -54,6 +52,8 @@ Observed Code Smells After Refactoring:
 - None
 ```
 
+---
+
 ### Example 2
 
 #### Before:
@@ -66,8 +66,6 @@ Need to be refactored or deleted.
 Observed Code Smells:
 -  Dead Code (line 34-50)
 ```
-
----
 
 #### After:
 

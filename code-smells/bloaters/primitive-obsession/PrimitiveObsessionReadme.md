@@ -37,8 +37,6 @@ Observed Code Smells:
     - Too many primitive variables and a method that can be put into a separate class to represent itself.
 ```
 
----
-
 #### After:
 Applied `Replace Data Value with Object` treatment
 
@@ -52,6 +50,8 @@ Refactoring Applied:
 Observed Code Smells After Refactoring:
 - None
 ```
+
+---
 
 ### Example 2
 

@@ -1,24 +1,27 @@
 {
   "name": "refactoring-assistant.github.io",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.ts",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "build": "ts-node src/app.ts",
-    "dev": "nodemon src/app.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start",
+    "lint": "eslint"
   },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/marked": "^5.0.2",
-    "@types/node": "^24.3.0",
-    "nodemon": "^3.1.10",
-    "ts-node": "^10.9.2"
-  },
-  "type": "module",
   "dependencies": {
-    "jsdom": "^26.1.0",
-    "marked": "^16.2.0"
+    "marked": "^16.2.1",
+    "next": "15.5.2",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/marked": "^5.0.2",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.2",
+    "typescript": "^5"
   }
 }

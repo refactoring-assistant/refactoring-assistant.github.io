@@ -50,6 +50,8 @@ Observed Code Smells After Refactoring:
 - None
 ```
 
+---
+
 ### Example 2
 
 #### Before:

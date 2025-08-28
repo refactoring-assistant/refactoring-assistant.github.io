@@ -1,36 +1,36 @@
-# refactoring-assistant.github.io
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Repository of code smells
+## Getting Started
 
-### How to navigate
+First, run the development server:
 
-In the `code-smells` folder you will find the following example file structure:
-
-```
-code-smells/
-└── bloaters/
-    └── data-clumps/
-        ├── example-1/
-        │   ├── DCBE1.java
-        │   └── DCGE1.java
-        ├── example-2/
-        │   ├── DCBE1.java
-        │   └── DCGE1.java
-        └── DataClumpsReadme.md
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Each `example` folder has two files in it, a 'good' example and a 'bad' example.
-A 'bad' example is a code file that contains the code smell mentioned by its parent folder and a 'good' example is a code file that does NOT contain THAT code smell in it.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-A 'good' example code file ends with a `GE` at the end of the file name and a 'bad' example code file ends with a `BE` at the end of the file name.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-In each `code smell` folder, there is a markdown file named `CodeSmellNameReadme.md` which contains information about the code smell such as:
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
- - Description (What is it)
- - How to Locate It (Where you might find it)
- - How It Manifests (Why it may have been introduced)
- - How to Fix It (Possible Treatments)
+## Learn More
 
-> **Note:** In the `How to Fix It` section, you will find that there are only 1 or 2 treatments listed. These are the treatments that have been used to fix the 'bad' example code files. There may be more treatments listed. You can find these other treatments at the link at the end of the section.
+To learn more about Next.js, take a look at the following resources:
 
-A website is also available to more easily browse this repository [here](https://refactoring-assistant.github.io)
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

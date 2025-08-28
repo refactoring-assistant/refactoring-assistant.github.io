@@ -35,8 +35,6 @@ Observed Code Smells:
 - Speculative Generality (lines 1-5)
 ```
 
----
-
 #### After:
 
 Deleted the unused abstract class by `Collapse Hierarchy`.
@@ -51,6 +49,8 @@ Refactoring Applied:
 Observed Code Smells After Refactoring:
 - None
 ```
+
+---
 
 ### Example 2
 

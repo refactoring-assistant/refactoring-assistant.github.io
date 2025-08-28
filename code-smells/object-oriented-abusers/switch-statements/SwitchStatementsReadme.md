@@ -34,8 +34,6 @@ Observed Code Smells:
 - Switch Statements (lines 33-53)
 ```
 
----
-
 #### After:
 
 Applied `Replace Type Code With Strategy` to create a new class that encapsulates each possible command which can provide the command name and execute the action of the command.
@@ -50,6 +48,8 @@ Refactoring Applied:
 Observed Code Smells After Refactoring:
 - None
 ```
+
+---
 
 ### Example 2
 
@@ -67,7 +67,6 @@ And also, the switch statement is too long.
 Observed Code Smells:
 -  Switch Statements (line 39-100)
 ```
----
 
 #### After:
 

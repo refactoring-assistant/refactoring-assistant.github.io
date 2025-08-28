@@ -35,8 +35,6 @@ Observed Code Smells:
 - Incomplete Library Class (lines 4, 10)
 ```
 
----
-
 #### After:
 
 Applied `Foreign Method` to create a private method to calculate the square root of twice Pi which can be used instead of calculating it everytime.
@@ -52,6 +50,8 @@ Observed Code Smells After Refactoring:
 - None
 ```
 
+---
+
 ### Example 2
 
 #### Before:
@@ -66,8 +66,6 @@ It is impossible for a developer to know every library, so this time the BiConsu
 Observed Code Smells:
 - Incomplete Library Class(line 36, line 68)
 ```
-
----
 
 #### After:
 

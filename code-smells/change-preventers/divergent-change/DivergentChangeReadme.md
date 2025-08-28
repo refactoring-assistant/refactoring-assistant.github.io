@@ -37,8 +37,6 @@ Observed Code Smells:
 - Divergent Change (lines 9-18, 20-27)
 ```
 
----
-
 #### After:
 Applied `Extract Class` to split the behavior into two classes. Both classes have the same behavior so, created interface Connector for inheritance
 
@@ -52,6 +50,8 @@ Refactoring Applied:
 Observed Code Smells After Refactoring:
 - None
 ```
+
+---
 
 ### Example 2
 
@@ -68,8 +68,6 @@ Observed Code Smells:
 -  Divergent Change (lines 75-158)
 -  Switch Statements (lines 78-98, lines 103-122, lines 128-157)
 ```
-
----
 
 #### After:
 The services of Draw, Move and Resize should have their own classes and single responsibility.

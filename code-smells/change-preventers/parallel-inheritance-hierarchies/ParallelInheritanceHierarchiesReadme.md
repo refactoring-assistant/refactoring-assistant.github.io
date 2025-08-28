@@ -36,8 +36,6 @@ Observed Code Smells:
 - Parallel Inheritance Hierarchies (lines 66-118)
 ```
 
----
-
 #### After:
 Removed hierarchy in `VampireWeapon` and `GhoulWeapon` by replacing them with a `BasicWeapon` and moved their fields and methods to the new `BasicWeapon` class using `Move Method` and `Move Field`.
 
@@ -51,6 +49,8 @@ Refactoring Applied:
 Observed Code Smells After Refactoring:
 - None
 ```
+
+---
 
 ### Example 2
 

@@ -33,8 +33,6 @@ Observed Code Smells:
 - Inappropriate Intimacy (lines 38, 43, 44)
 ```
 
----
-
 #### After:
 
 Applied `Hide Delegate` to make field private and create a getter for the field instead to make the relation "official" instead of directly mutating the field. This is step 2 of the Extract Class and Hide Delegate treatment but since only a field is being accessed, the `Extract Class` part seems unecessary and making the field private from public seems to be enough.
@@ -49,6 +47,8 @@ Refactoring Applied:
 Observed Code Smells After Refactoring:
 - None
 ```
+
+---
 
 ### Example 2
 
@@ -74,8 +74,6 @@ Observed Code Smells:
 - Inappropriate Intimacy (line 78, line 82, line 91, line 131, line 135, line 145)
                          
 ```
-
----
 
 #### After:
 

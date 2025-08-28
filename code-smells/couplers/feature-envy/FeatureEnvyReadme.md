@@ -32,8 +32,6 @@ Observed Code Smells:
 - Feature Envy (lines 57-61, 63-66)
 ```
 
----
-
 #### After:
 
 Used `Move Method` to move getFormattedDuration() and getCurrentRecordDetails() to the `Record` class as it is better suited.
@@ -48,6 +46,8 @@ Refactoring Applied:
 Observed Code Smells After Refactoring:
 - None
 ```
+
+---
 
 ### Example 2
 
@@ -65,8 +65,6 @@ related getter methods in class `RemoteController`.
 Observed Code Smells:
 - Feature Envy (lines 57-61, 63-66)
 ```
-
----
 
 #### After:
 
