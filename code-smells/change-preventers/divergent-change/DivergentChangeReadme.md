@@ -87,6 +87,6 @@ Observed Code Smells After Refactoring:
 
 None
 
-### More
+## More
 
 [More about Divergent Change](https://refactoring.guru/smells/divergent-change)

@@ -94,5 +94,5 @@ Observed Code Smells After Refactoring:
 
 Sometimes having parallel inheritance hierarchies can make sense, where applying the treatments can lead to messier code.
 
-### More
+## More
 [More about Parallel Inheritance Hierarchies](https://refactoring.guru/smells/parallel-inheritance-hierarchies)

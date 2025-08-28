@@ -79,5 +79,5 @@ Observed Code Smells After Refactoring:
 
 Don't shorten parameter lists if doing so causes unwanted dependencies between classes
 
-### More
+## More
 [More about Long Parameter Lists](https://refactoring.guru/smells/long-parameter-list)

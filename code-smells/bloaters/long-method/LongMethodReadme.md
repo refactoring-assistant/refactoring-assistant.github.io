@@ -95,5 +95,5 @@ Observed Code Smells After Refactoring:
 ## When to Ignore
 Not applicable in the given examples.
 
-### More
+## More
 [More about Long Method](https://refactoring.guru/smells/long-method)

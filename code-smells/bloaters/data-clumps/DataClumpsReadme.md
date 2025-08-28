@@ -80,5 +80,5 @@ Observed Code Smells After Refactoring:
 ## When to Ignore
 In cases where passing an object in method parameters might create an undesirable dependency between two classes
 
-### More
+## More
 [More about Data Clumps](https://refactoring.guru/smells/data-clumps)

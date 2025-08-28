@@ -94,6 +94,6 @@ Observed Code Smells After Refactoring:
 
 None
 
-### More
+## More
 
 [More about Shotgun Surgery](https://refactoring.guru/smells/shotgun-surgery)
