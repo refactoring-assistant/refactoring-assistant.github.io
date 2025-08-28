@@ -117,3 +117,8 @@ main>section:nth-child(2) {
 	padding-left: 4px;
 	overflow-x: scroll;
 }
+
+.home {
+	display: unset;
+	text-align: center;
+}
